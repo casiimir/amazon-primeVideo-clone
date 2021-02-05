@@ -1,0 +1,117 @@
+* {
+  text-decoration: none;
+}
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0f171e;
+  color: #fff;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-size: 12px;
+}
+
+main {
+  margin: 20px 80px;
+  overflow: hidden;
+}
+
+.fa {
+  margin: 0 3px;
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
+.fa-play-circle {
+  font-size: 2rem;
+}
+
+.wrapperMovies {
+  display: flex;
+}
+.wrapperMovies .card {
+  margin: 0 5px;
+}
+.wrapperMovies .card button {
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+}
+.wrapperMovies .card img {
+  height: 150px;
+  width: 250px;
+  object-fit: cover;
+  object-position: 0 10%;
+}
+.wrapperMovies .card:hover {
+  border: 2px solid #00a8e1;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transform: scale(1.1) translateY(-20px);
+  transition: 0.3s;
+  z-index: 1;
+}
+.wrapperMovies .card:hover .cardContent {
+  display: block;
+}
+.wrapperMovies .card .cardContent {
+  display: none;
+  background-color: #0f171e;
+  padding: 10%;
+}
+.wrapperMovies .card .cardContent .cardContent__statusBar {
+  display: flex;
+  cursor: pointer;
+}
+.wrapperMovies .card .cardContent .cardContent__statusBar a {
+  color: #fff;
+  display: flex;
+}
+.wrapperMovies .card .cardContent .cardContent__statusBar a button {
+  margin: 0 6px 0 0;
+  padding: 0;
+  cursor: pointer;
+}
+.wrapperMovies .card .cardContent .cardContent__statusBar a button:hover {
+  color: #00a8e1;
+}
+.wrapperMovies .card .cardContent .cardContent__statusBar div {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.wrapperMovies .card .cardContent .cardContent__desc {
+  margin: 7px 0;
+}
+.wrapperMovies .card .cardContent .cardContent__desc p:nth-child(1) {
+  color: #00a8e1;
+}
+.wrapperMovies .card .cardContent .cardContent__desc p:nth-child(3) {
+  font-size: 0.7rem;
+  margin: 3px 0 0;
+}
+.wrapperMovies .card .cardContent .cardContent__info i {
+  font-size: 0.7rem;
+  font-style: normal;
+}
+
+.mostPopular .mostPopular__header {
+  display: flex;
+}
+.mostPopular .mostPopular__header > * {
+  margin: 15px;
+}
+.mostPopular .mostPopular__header > img {
+  height: 100%;
+  margin: auto 0;
+}
+
+@font-face {
+  font-family: "Amazon Ember";
+  src: url("./font/AmazonEmber_Rg.ttf");
+}
+
+/*# sourceMappingURL=style.css.map */

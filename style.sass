@@ -1,0 +1,116 @@
+*
+  text-decoration: none
+  &:focus
+    outline: none
+
+body
+  margin: 0
+  padding: 0
+  background-color: #0f171e
+  color: #fff
+  font-family: 'Amazon Ember', Arial, sans-serif
+  font-size: 12px
+main
+  margin: 20px 80px
+  overflow: hidden
+
+// Generic - Font Awesome
+.fa
+  margin: 0 3px
+  font-size: 1.2rem
+  font-weight: lighter
+
+.fa-play-circle
+  font-size: 2rem
+
+// Wrapper Movies - generic
+.wrapperMovies
+  display: flex
+  
+  .card
+    margin: 0 5px
+
+    button
+      background-color: transparent
+      border: 0
+      color: #fff
+
+    img
+      height: 150px
+      width: 250px
+      object-fit: cover
+      object-position: 0 10%
+
+    &:hover
+      border: 2px solid #00a8e1
+      border-radius: 4px
+      box-sizing: border-box
+      transform: scale(1.1) translateY(-20px)
+      transition: .3s
+      z-index: 1
+
+    &:hover .cardContent
+      display: block
+
+    .cardContent
+      display: none   //<-- IMPORTANT!
+      background-color: #0f171e
+      padding: 10%
+
+      .cardContent__statusBar
+        display: flex
+        cursor: pointer
+
+        a
+          color: #fff
+          display: flex
+
+          button
+            margin: 0 6px 0 0
+            padding: 0            
+            cursor: pointer
+
+            &:hover
+              color: #00a8e1
+
+        div
+          display: flex
+          justify-content: flex-end
+          width: 100%
+      
+      .cardContent__desc
+        margin: 7px 0
+
+      .cardContent__desc p:nth-child(1)
+        color: #00a8e1
+      .cardContent__desc p:nth-child(3)
+        font-size: .7rem
+        margin: 3px 0 0
+
+      .cardContent__info
+        i
+          font-size: .7rem
+          font-style: normal
+      
+           
+
+// Most Popular wrapper
+.mostPopular
+
+  .mostPopular__header
+    display: flex
+
+    & > *
+      margin: 15px
+
+    & > img
+      height: 100%
+      margin: auto 0
+
+
+
+
+
+@font-face
+  font-family: 'Amazon Ember'
+  src: url('./font/AmazonEmber_Rg.ttf')
