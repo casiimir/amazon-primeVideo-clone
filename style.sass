@@ -1,5 +1,6 @@
 *
   text-decoration: none
+  scroll-behavior: smooth
   &:focus
     outline: none
 
@@ -10,9 +11,10 @@ body
   color: #fff
   font-family: 'Amazon Ember', Arial, sans-serif
   font-size: 12px
+  //overflow-x: hidden
+
 main
-  margin: 20px 80px
-  overflow: hidden
+  margin: 0 20px
 
 // Generic - Font Awesome
 .fa
@@ -23,10 +25,56 @@ main
 .fa-play-circle
   font-size: 2rem
 
-// Wrapper Movies - generic
-.wrapperMovies
+// Carosello btn
+.caroselloBtn__buttonRight
+  position: absolute
+  left: 70px
   display: flex
-  
+  justify-content: center
+  align-items: center
+  width: 60px
+  height: 135px
+  font-size: 2rem
+  cursor: pointer
+  opacity: .35
+  z-index: 1
+  transition: .35s
+  user-select: none
+  &:hover
+    background: linear-gradient(90deg, #000000e3 9%, #000000c2 39%, #00000079 71%, rgba(0,0,0,0) 100%)
+    opacity: .75
+  h6
+    pointer-events: none
+
+.caroselloBtn__buttonLeft 
+  position: absolute
+  right: 70px
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 60px
+  height: 135px
+  font-size: 2rem
+  cursor: pointer
+  opacity: .35
+  z-index: 1
+  transition: .35s
+  user-select: none
+  &:hover
+    background: linear-gradient(270deg, #000000e3 9%, #000000c2 39%, #00000079 71%, rgba(0,0,0,0) 100%)
+    opacity: .75
+  h6
+    pointer-events: none
+
+
+// Wrapper Movies - generic - Carosello
+.wrapperList
+  position: relative
+  display: flex
+  overflow: hidden
+  height: 195px  
+  margin: 0 50px 
+
   .card
     margin: 0 5px
 
@@ -36,26 +84,30 @@ main
       color: #fff
 
     img
-      height: 150px
+      height: 135px
       width: 250px
       object-fit: cover
       object-position: 0 10%
+      cursor: pointer
 
     &:hover
-      border: 2px solid #00a8e1
+      margin-top: -135px
       border-radius: 4px
       box-sizing: border-box
-      transform: scale(1.1) translateY(-20px)
-      transition: .3s
-      z-index: 1
+      transform: scale(1.05)
+      transition: .35s
+
 
     &:hover .cardContent
       display: block
+      position: absolute
+      border: 2px solid #00a8e1
 
     .cardContent
+      padding: 0
       display: none   //<-- IMPORTANT!
       background-color: #0f171e
-      padding: 10%
+      padding: 0 7px 5px 7px 
 
       .cardContent__statusBar
         display: flex
@@ -80,6 +132,7 @@ main
       
       .cardContent__desc
         margin: 7px 0
+        height: 100px
 
       .cardContent__desc p:nth-child(1)
         color: #00a8e1
@@ -107,9 +160,47 @@ main
       height: 100%
       margin: auto 0
 
+// Footer
+footer
+  margin: 100px 0 40px 0
+  text-align: center
+  font-size: .8rem
+  
+  img
+    width: 125px
+
+  a
+    margin: 0 8px
+    color: #79b8f3
+  
+  p
+    color: #8197a4
 
 
+@media (max-width: 676px)
+  .caroselloBtn__buttonLeft,
+  .caroselloBtn__buttonRight
+    display: none
 
+  .wrapperList
+    height: 195px  
+    margin: 0
+    overflow-x: visible
+
+    .card
+      margin: 0 5px
+
+      img
+        height: 135px
+        width: 250px
+        
+      &:hover,
+      &:focus,
+      &:active
+        margin-top: -135px
+        box-sizing: border-box
+        transform: scale(1.05)
+        transition: .35s
 
 @font-face
   font-family: 'Amazon Ember'
