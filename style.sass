@@ -25,6 +25,28 @@ main
 .fa-play-circle
   font-size: 2rem
 
+// Header
+.navbar
+  display: flex
+  justify-content: space-between
+  padding: 10px 40px
+
+  .navbar__logoIcon
+    width: 140px
+
+    img
+      width: 100%
+
+  .navbar__links 
+    align-self: center
+    ul
+      margin: 0
+      padding: 0
+      list-style: none
+
+
+
+
 // Carosello btn
 .caroselloBtn__buttonRight
   position: absolute
@@ -200,6 +222,43 @@ footer
         box-sizing: border-box
         transform: scale(1.05)
         transition: .35s
+
+.addToWatchListBtn,
+.rmFromWatchListBtn
+  display: none
+
+.addToCard
+  display: block
+  i
+    color: white
+  &:active
+    i
+      color: #00a8e1
+
+
+
+// Added to watchlist Modal
+.watchListModal
+  position: fixed
+  display: flex
+  justify-content: center
+  align-items: center
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+  height: 4rem
+  font-size: 1.6rem
+  background: rgba(0,0,0,.8)
+  color: #00a8e1
+  opacity: 0
+  z-index: -1
+  transition: .5s
+
+.showWatchListModal  
+  opacity: 1
+  z-index: 1
 
 @font-face
   font-family: 'Amazon Ember'

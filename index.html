@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +11,22 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar__logoIcon">
+        <img src="./img/prime.png" alt="logo-prime-video">
+      </div>
+      <div class="navbar__links">
+        <ul>
+          <li>user icon</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
   <main>
+    <button class="getUserPermissionBtn">Get user permissions</button>
+    <button class="getUserValidSessionID">Get valid user seesion ID</button>
+
     <div class="mostPopular">
       <div class="mostPopular__header">
         <img src="https://m.media-amazon.com/images/G/01/digital/video/global/prime-logo-large-v4._CB509553088_.png" alt="">
@@ -72,6 +89,9 @@
       <p>© 2021 Casi, replica likes Amazon Prime Video.</p>
     </div>
   </footer>
+
+  <!-- Added to the WatchList Modal -->
+  <div class="watchListModal"></div>
   
   <script src="./main.js" type="module"></script>
   <script src="./card.js" type="module"></script>

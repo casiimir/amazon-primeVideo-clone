@@ -1,4 +1,4 @@
-function createCardMovie(img, title, description, link, addWatchList, hideIt, parent) {
+function createCardMovie(img, title, description, link, addWatchList, hideIt, parent, INFO) {
   const card = document.createElement('div');
   card.classList.add('card');
 
@@ -35,6 +35,9 @@ function createCardMovie(img, title, description, link, addWatchList, hideIt, pa
   const iconsRowFirst = document.createElement('a');
   iconsRowFirst.src = addWatchList;
   const iconsRowBtnFirst = document.createElement('button');
+  iconsRowBtnFirst.classList.add("addToWatchListBtn");
+  iconsRowBtnFirst.id = INFO.id;
+  iconsRowBtnFirst.title = 'Add to Watchlist';
   const iconsRowBtnFirstIcon = document.createElement('i');
   iconsRowBtnFirstIcon.className = "fa fa-plus";
   iconsRowBtnFirst.appendChild(iconsRowBtnFirstIcon);
@@ -42,6 +45,9 @@ function createCardMovie(img, title, description, link, addWatchList, hideIt, pa
   const iconsRowSecond = document.createElement('a');
   iconsRowSecond.src = hideIt;
   const iconsRowBtnSecond = document.createElement('button');
+  iconsRowBtnSecond.classList.add("rmFromWatchListBtn");
+  iconsRowBtnSecond.id = INFO.id;
+  iconsRowBtnSecond.title = 'Remove from Watchlist';
   const iconsRowBtnSecondIcon = document.createElement('i');
   iconsRowBtnSecondIcon.className = "fa fa-ban";
   iconsRowBtnSecond.appendChild(iconsRowBtnSecondIcon);
