@@ -7,6 +7,8 @@ Working process:
 
 */
 
+// With ES6 modules, chrome present a problem with CORS policy
+// It needs a server, becouse Chrome interrupt the call to API
 import createCardMovie from './card.js';
 
 function getAuthTokenOnLoad() {
@@ -21,8 +23,10 @@ function getAuthTokenOnLoad() {
   getValidSessionID();
 }
 
-const getUserPermission = () =>
+function getUserPermission() {
   open(`https://www.themoviedb.org/authenticate/${requestToken}`);
+  getUserPermissionBtn.style.display = 'none';
+}
 
 function getValidSessionID() {
   fetch(`${baseMovieDBURL}authentication/session/new?api_key=${APIKEY}`, {
@@ -45,6 +49,10 @@ function getValidSessionID() {
           .then ((r) => r.json())
           .then((data) => userInfo = data)
         
+        getUserValidSessionID.style.display = 'none';
+
+        startModal('Permission granted ');
+
         showWatchlistButtonInCard();
       }
     })
@@ -75,11 +83,6 @@ function getTopRatedSeries() {
     .then((data) => getMovieInfo(data.results, wrapperTopRatedSeries))
 }
 
-
-
-
-
-
 // POSTing data funcs. -- needs showWatchlistButtonInCard func.
 function setAsWatchlist(type, movieID){
   try {
@@ -93,13 +96,7 @@ function setAsWatchlist(type, movieID){
       }) 
     })  
 
-    // Modal
-    const watchListModal = document.querySelector('.watchListModal');
-    watchListModal.textContent = 'Added to the Watchlist';
-    watchListModal.classList.toggle('showWatchListModal');
-    setTimeout(() => {
-      watchListModal.classList.toggle('showWatchListModal');
-    }, 1250)
+    startModal('Added to the watchlist');
 
   } catch (error) {
     console.log('Non ci sono i dati dell\'utente:', error)
@@ -118,19 +115,12 @@ function rmFromWatchlist(type, movieID){
       }) 
     }) 
     
-    // Modal
-    const watchListModal = document.querySelector('.watchListModal');
-    watchListModal.textContent = 'Removed from the Watchlist';
-    watchListModal.classList.toggle('showWatchListModal');
-    setTimeout(() => {
-      watchListModal.classList.toggle('showWatchListModal');
-    }, 1250)
+    startModal('Removed from the watchlist');
     
   } catch (error) {
     console.log('Non ci sono i dati dell\'utente:', error)
   }
 }
-
 
 // Enables button 'Add to watch list'
 function showWatchlistButtonInCard () {
@@ -148,12 +138,6 @@ function showWatchlistButtonInCard () {
   })
 
 }
-
-
-
-
-
-
 
 // Get movie List
 function getMovieInfo(moviesList, parent) {
@@ -178,16 +162,28 @@ function limitDescriptionLength(data) {
   else return data
 }
 
+// Modal
+function startModal(message) {
+  const watchListModal = document.querySelector('.watchListModal');
+  watchListModal.textContent = message;
+  watchListModal.classList.toggle('showWatchListModal');
+  setTimeout(() => {
+    watchListModal.classList.toggle('showWatchListModal');
+  }, 1250)
+}
+  
+
 // Init
 const state = {
   baseMovieDBURL: 'https://api.themoviedb.org/3/',
   APIKEY: '3e097ab0145d7f55f3ad142f59498fb7',
   requestToken: null,
   sessionID: null,
-  userInfo: null
+  userInfo: null,
+  watchList: null,
 }
 
-let { baseMovieDBURL, APIKEY, requestToken, sessionID, userInfo } = state;
+let { baseMovieDBURL, APIKEY, requestToken, sessionID, userInfo, watchList } = state;
 window.addEventListener('load', getAuthTokenOnLoad, { once: true });
 
 const wrapperPopMovies = document.querySelector('.wrapperPopMovies');
@@ -211,3 +207,52 @@ getUserPermissionBtn.addEventListener('click', getUserPermission);
 
 const getUserValidSessionID = document.querySelector('.getUserValidSessionID');
 getUserValidSessionID.addEventListener('click', getValidSessionID);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TEST WATCHLIST
+async function getWatchListData() {
+  const res = await fetch(`${baseMovieDBURL}account/${userInfo.id}/watchlist/movies?api_key=${APIKEY}&language=en-US&session_id=${sessionID}&sort_by=created_at.asc&page=1`); 
+  const data = await res.json();
+  watchList = data.results;
+
+  getWatchlistPage(watchList);
+}
+
+function showWatchlistOnDOM() {  
+  mostPopularEls.forEach((el) => el.classList.toggle('watchlist__hide'));
+  watchlistSection.style.display = 'block';
+}
+
+function getWatchlistPage(watchlist) {
+  watchlist.map((movie) => {
+    const movieInfo = {
+      img: `https://www.themoviedb.org/t/p/w342` + movie.poster_path,
+      title: movie.title || movie.name,
+      link: 'http://google.com',
+      addWatchList: 'http://google.com',
+      hideIt: 'http://google.com',
+      description: limitDescriptionLength(movie.overview),
+    }
+    const { img, title, link, addWatchList, hideIt, description } = movieInfo;
+
+    createCardMovie(img, title, description, link, false, false, watchlistWrapper, "INFO");
+  })
+}
+
+const mostPopularEls = document.querySelectorAll('.mostPopular');
+const watchlistSection = document.querySelector('.watchlist');
+const watchlistWrapper = document.querySelector('.watchlist__wrapper');
+const goToWatchlistBtn = document.querySelector('.goToWatchlist');
+goToWatchlistBtn.addEventListener('click', getWatchListData);
+goToWatchlistBtn.addEventListener('click', showWatchlistOnDOM);

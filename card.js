@@ -89,4 +89,4 @@ function createCardMovie(img, title, description, link, addWatchList, hideIt, pa
   parent.appendChild(card);
 }
 
-export default createCardMovie
+export default createCardMovie;

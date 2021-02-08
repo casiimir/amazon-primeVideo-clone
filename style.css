@@ -48,6 +48,12 @@ main {
   padding: 0;
   list-style: none;
 }
+.navbar .navbar__links ul li {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
 
 .caroselloBtn__buttonRight {
   position: absolute;
@@ -131,6 +137,7 @@ main {
 }
 .wrapperList .card .cardContent {
   padding: 0;
+  min-width: 232px;
   display: none;
   background-color: #0f171e;
   padding: 0 7px 5px 7px;
@@ -261,6 +268,23 @@ footer p {
 .showWatchListModal {
   opacity: 1;
   z-index: 1;
+}
+
+.watchlist {
+  display: none;
+}
+.watchlist .watchlist__wrapper {
+  overflow: visible;
+  display: flex;
+  flex-wrap: wrap;
+}
+.watchlist .watchlist__wrapper .card {
+  position: relative;
+  z-index: 1;
+}
+
+.watchlist__hide {
+  display: none;
 }
 
 @font-face {

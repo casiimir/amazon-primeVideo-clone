@@ -1,4 +1,7 @@
-
+<!--
+  1. Sistemare il login e aggiungere il relativo btn
+  2. Aggiungere pagina della watchlist e un relativo 'btn href to it'
+-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,15 +21,14 @@
       </div>
       <div class="navbar__links">
         <ul>
-          <li>user icon</li>
+          <li class="getUserPermissionBtn">Get permissions</li>
+          <li class="getUserValidSessionID">Get session ID</li>
+          <li class="goToWatchlist">Watchlist</li>
         </ul>
       </div>
     </nav>
   </header>
   <main>
-    <button class="getUserPermissionBtn">Get user permissions</button>
-    <button class="getUserValidSessionID">Get valid user seesion ID</button>
-
     <div class="mostPopular">
       <div class="mostPopular__header">
         <img src="https://m.media-amazon.com/images/G/01/digital/video/global/prime-logo-large-v4._CB509553088_.png" alt="">
@@ -71,6 +73,12 @@
       </div>
       <div class="wrapperList wrapperTopSeries"></div>
     </div>
+
+    <div class="watchlist">
+      <h2 class="watchlist__header">Watchlist</h2>
+      <div class="watchlist__wrapper wrapperList"></div>
+    </div>
+
   </main>
   <footer>
     <img src="./img/prime.png" alt="prime-video-logo">

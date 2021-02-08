@@ -44,6 +44,11 @@ main
       padding: 0
       list-style: none
 
+      li
+        display: inline-block
+        margin: 0 10px
+        font-size: .9rem
+        cursor: pointer
 
 
 
@@ -119,7 +124,6 @@ main
       transform: scale(1.05)
       transition: .35s
 
-
     &:hover .cardContent
       display: block
       position: absolute
@@ -127,6 +131,7 @@ main
 
     .cardContent
       padding: 0
+      min-width: 232px
       display: none   //<-- IMPORTANT!
       background-color: #0f171e
       padding: 0 7px 5px 7px 
@@ -259,6 +264,25 @@ footer
 .showWatchListModal  
   opacity: 1
   z-index: 1
+
+
+// Watchlist
+
+.watchlist
+  display: none
+
+  .watchlist__wrapper
+    overflow: visible
+    display: flex
+    flex-wrap: wrap
+    
+    .card
+      position: relative
+      z-index: 1
+
+.watchlist__hide
+  display: none
+  
 
 @font-face
   font-family: 'Amazon Ember'
