@@ -50,6 +50,7 @@ function getValidSessionID() {
           .then((data) => userInfo = data)
         
         getUserValidSessionID.style.display = 'none';
+        goToWatchlistBtn.style.display = 'inline-block';
 
         startModal('Permission granted ');
 
@@ -235,6 +236,7 @@ function showWatchlistOnDOM() {
 }
 
 function getWatchlistPage(watchlist) {
+  watchlistWrapper.textContent = '';
   watchlist.map((movie) => {
     const movieInfo = {
       img: `https://www.themoviedb.org/t/p/w342` + movie.poster_path,
@@ -254,5 +256,6 @@ const mostPopularEls = document.querySelectorAll('.mostPopular');
 const watchlistSection = document.querySelector('.watchlist');
 const watchlistWrapper = document.querySelector('.watchlist__wrapper');
 const goToWatchlistBtn = document.querySelector('.goToWatchlist');
+
 goToWatchlistBtn.addEventListener('click', getWatchListData);
 goToWatchlistBtn.addEventListener('click', showWatchlistOnDOM);

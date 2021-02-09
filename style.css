@@ -270,21 +270,18 @@ footer p {
   z-index: 1;
 }
 
-.watchlist {
-  display: none;
-}
-.watchlist .watchlist__wrapper {
-  overflow: visible;
-  display: flex;
-  flex-wrap: wrap;
-}
-.watchlist .watchlist__wrapper .card {
-  position: relative;
-  z-index: 1;
-}
-
 .watchlist__hide {
   display: none;
+}
+
+#goToWatchlist {
+  display: none;
+  color: #00a8e1;
+  font-weight: bold;
+  padding: 2.5px 7.5px;
+}
+#goToWatchlist:active {
+  color: #fff;
 }
 
 @font-face {
