@@ -144,6 +144,7 @@ function showWatchlistButtonInCard () {
 function getMovieInfo(moviesList, parent) {
   moviesList.map((movie) => {
     const movieInfo = {
+      bgImage: `https://www.themoviedb.org/t/p/w1280` + movie.backdrop_path,
       img: `https://www.themoviedb.org/t/p/w342` + movie.poster_path,
       title: movie.title || movie.name,
       link: 'http://google.com',
@@ -151,9 +152,9 @@ function getMovieInfo(moviesList, parent) {
       hideIt: 'http://google.com',
       description: limitDescriptionLength(movie.overview),
     }
-    const { img, title, link, addWatchList, hideIt, description } = movieInfo;
+    const { bgImage, img, title, link, addWatchList, hideIt, description } = movieInfo;
 
-    createCardMovie(img, title, description, addWatchList, hideIt, link, parent, movie);
+    createCardMovie(bgImage, img, title, description, addWatchList, hideIt, link, parent, movie);
   }) 
 }
 

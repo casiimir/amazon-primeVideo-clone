@@ -124,10 +124,10 @@ main {
   cursor: pointer;
 }
 .wrapperList .card:hover {
-  margin-top: -135px;
+  margin-top: -138px;
   border-radius: 4px;
   box-sizing: border-box;
-  transform: scale(1.05);
+  transform: scale(1);
   transition: 0.35s;
 }
 .wrapperList .card:hover .cardContent {

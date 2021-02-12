@@ -1,23 +1,23 @@
 import getMovieModal from './movieInfoSec.js';
 
-function createCardMovie(bgImage, img, title, description, link, addWatchList, hideIt, parent, INFO) {
-  const card = document.createElement('div');
-  card.classList.add('card');
+function createCardMovie(bgImage, img, title, description, link, addWatchList, hideIt, parent, INFO) 
+  // CardContent Wrapper
+  const cardWrapperEl = document.createElement('div');
+  cardWrapperEl.classList.add('cardWrapper');
 
-  const cardLink = document.createElement('a');
-  const cardImage = document.createElement('img');
-  cardImage.classList.add('card__image');
-  cardImage.src = img;
-  cardLink.append(cardImage);
+  const cardWrapperLinkEl = document.createElement('a');
+  const cardWrapperImgEl = document.createElement('img');
+  cardWrapperLinkEl.append(cardImage);
+  cardWrapperImgEl.classList.add('cardWrapper__img');
+  cardWrapperImgEl.src = img;
 
   // CardContent
-  const cardContent = document.createElement('div');
-  cardContent.classList.add('cardContent');
+  const cardContentEl = document.createElement('div');
+  cardContentEl.classList.add('cardContent');
+
+  // CardContent__statusBar --> First <a> 
   const cardContentStatusBar = document.createElement('div');
   cardContentStatusBar.classList.add('cardContent__statusBar');
-  cardContent.appendChild(cardContentStatusBar);
-
-  // CardContent__statusBar --> First <a>
   const cardStatusLink = document.createElement('a');
   cardStatusLink.src = link;
   const cardStatusLinkBtn = document.createElement('button');
@@ -31,6 +31,7 @@ function createCardMovie(bgImage, img, title, description, link, addWatchList, h
   cardStatusLinkPar.appendChild(cardStatusLinkStrong);
   cardStatusLink.appendChild(cardStatusLinkPar);
   cardContentStatusBar.appendChild(cardStatusLink);
+  cardContentEl.appendChild(cardContentStatusBar);
 
   // CardContent__statusBar --> icons <div>
   const iconsRowDiv = document.createElement('div');
@@ -87,11 +88,11 @@ function createCardMovie(bgImage, img, title, description, link, addWatchList, h
                          cardContentInfoThird);
   cardContent.appendChild(cardContentInfo);
 
-  card.append(cardLink, cardContent)
-  parent.appendChild(card);
+  cardWrapper.append(cardLink, cardContent)
+  parent.appendChild(cardWrapper);
 
     // Launch Movie modal on click
-    card.addEventListener('click', () => {     
+    cardWrapper.addEventListener('click', () => {     
       getMovieModal(bgImage, img, title, description);
     })
 }

@@ -1,0 +1,94 @@
+.movieInfo{
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,.9);  
+  font-family: 'Poppins', sans-serif;
+
+  z-index: 1;
+}
+
+.movieInfoWrapper {
+  position: relative;
+  width: 60%;
+  height: 600px;
+
+  display: flex;
+  align-items: center;
+
+  background-image: url('https://www.denofgeek.com/wp-content/uploads/2020/02/game_of_thrones_season_8_episode_4_review_the_last_of_the_starks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: white;
+
+  box-sizing: border-box;
+}
+
+.movieInfoWrapper img {
+  width: 160px;
+  margin: 0 35px 0 70px;
+  border-radius: 3px;
+  box-shadow: 0 0 3px 2px rgb(255, 255, 255, .25);
+  cursor: pointer;
+  z-index: 2;
+
+}
+
+.movieInfoWrapper img:hover {
+  box-shadow: 0 0 3px 2px rgba(0, 217, 255, 0.45);
+}
+
+.movieInfoWrapper h2, p {
+  font-size: .95rem;
+  word-spacing: 2px;
+  z-index: 2;
+}
+
+.movieInfoWrapper h2{
+  font-size: 2.1rem;
+}
+
+/* .movieInfoWrapper__closeIcon{
+  position: absolute;
+  top: -18px;
+  right: -15px;
+
+  opacity: .35;
+  font-size: 2rem;
+  
+  cursor: pointer;
+  user-select: none;
+  z-index: 2;
+}
+
+.movieInfoWrapper__closeIcon:hover{
+  opacity: .85;
+} */
+
+.movieInfoWrapper__content {
+  padding: 0 200px 0 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.movieInfoWrapper__content > * {
+  margin: 5px 0;
+}
+
+
+.movieInfoWrapper__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(90deg, rgba(0,0,0,.9) 30%, rgba(0, 0, 0, 0) 75%);
+  z-index: 1;
+}
